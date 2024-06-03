@@ -1,12 +1,6 @@
 import React, {useState} from 'react';
-import {
-  Button,
-  Platform,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
+import {PrimaryButton} from '../components/shared/PrimaryButton';
 
 export const CounterScreen = () => {
   const [counter, setCounter] = useState<number>(10);
@@ -21,19 +15,11 @@ export const CounterScreen = () => {
           setCounter(counter + 1);
         }}
       /> */}
-      <Pressable
-        style={({pressed}) => [styles.button, pressed && styles.buttonPressed]}
+      <PrimaryButton
+        lable="incrementar"
         onPress={() => setCounter(counter + 1)}
-        onLongPress={() => setCounter(0)}>
-        <Text
-          style={{
-            fontSize: 25,
-            fontWeight: '500',
-            color: Platform.OS === 'android' ? '#ffffff' : '#7edee7',
-          }}>
-          +1{' '}
-        </Text>
-      </Pressable>
+        onLongPress={() => setCounter(0)}
+      />
     </View>
   );
 };
@@ -48,14 +34,5 @@ const styles = StyleSheet.create({
     fontSize: 80,
     color: 'red',
     padding: 20,
-  },
-  button: {
-    backgroundColor: Platform.OS === 'android' ? '#50575d' : 'white',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 15,
-  },
-  buttonPressed: {
-    backgroundColor: Platform.OS === 'android' ? '#667785' : 'white',
   },
 });
