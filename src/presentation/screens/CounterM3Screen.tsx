@@ -17,7 +17,9 @@ export const CounterM3Screen = () => {
         style={globalStyles.fab}
         onPress={() => setCounter(counter + 1)}
         onLongPress={() => setCounter(0)}
-        icon={() => <Icon name="accessibility-outline" size={25} />}
+        // No se deben agregar los iconos como Component
+        // icon={() => <Icon name="accessibility-outline" size={25} />}
+        icon="add-outline"
       />
     </View>
   );
